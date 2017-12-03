@@ -53,6 +53,11 @@ Project: this project is that create a web application in Python to recognise di
   next step is that running checking.py, which scan the number photo from folder and distinguish the number is
   . i had upload the 8 photo
   
+  the photo is 
+  
+  ![image](https://github.com/Zehuayu/Emerging_TechnologiesIan/blob/master/photo/dog8.jpg)
+  
+  
   the result:
   
   ![image](https://github.com/Zehuayu/Emerging_TechnologiesIan/blob/master/photo/1Qai5MFRThuOSjPBdLWNuQ_thumb_1858.jpg)
