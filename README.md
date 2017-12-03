@@ -1,8 +1,9 @@
 # Emerging-Technologies-Project-Year4
           
-          Student: Zehua Yu G00307279
-          Teacher: Ian
-          Project: this project is that create a web application in Python to recognise digits in images. Users are  able to visit the web application through their browser, submit an image containing a single digit, and the web application will respond with the digit contained in the image. 
+Student: Zehua Yu  Student number:G00307279
+             Teacher: Ian
+          
+Project: this project is that create a web application in Python to recognise digits in images. Users are  able to visit the web application through their browser, submit an image containing a single digit, and the web application will respond with the digit contained in the image. 
  
  
  ## what is tensorflow 
@@ -20,9 +21,10 @@
   
   [Flask](http://flask.pocoo.org/)
   
-  ## How to use that
+  ## using process
   
   1. setting environment
+        
         install python
         pip3 install tensorflow (if using the pip, the tensorflow could be intalled in python2.7 library)
         pip3 install opencv-python(using cv2 scan the number photo) 
@@ -40,11 +42,25 @@
   
   this project owns three python file, learning.py is that machine learn how to discern number from image
   
-  type python3 Learning.py
-  
-  ![image](https://github.com/.jpg)
+  type python3 Learning.py   running
   
   
+  this is result:
+  ![image](https://github.com/Zehuayu/Emerging_TechnologiesIan/blob/master/photo/learning_result.jpg)
+  
+  Precision is 92% and save model
+  
+  next step is that running checking.py, which scan the number photo from folder and distinguish the number is
+  . i had upload the 8 photo
+  
+  the result:
+  
+  ![image](https://github.com/Zehuayu/Emerging_TechnologiesIan/blob/master/photo/1Qai5MFRThuOSjPBdLWNuQ_thumb_1858.jpg)
+  
+  The website page
+  ![image](https://github.com/Zehuayu/Emerging_TechnologiesIan/blob/master/photo/webpage.jpg)
+  
+  user can upload picture to upload folder, and checking.py can scan the photo and give response to user
   
   
   
