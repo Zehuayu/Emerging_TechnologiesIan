@@ -1,12 +1,13 @@
 # -*- coding:utf-8 -*-    
-import cv2  
+#resource from http://blog.csdn.net/gaohuazhao/article/details/72886450?locationNum=4&fps=1
+import cv2  # scan number photo uploaded
 import tensorflow as tf  
 import numpy as np  
-from sys import path  
-path.append('../..')  
+  
 #from common import extract_mnist  
   
 #初始化单个卷积核上的参数  
+#The initialization value
 def weight_variable(shape):  
     initial = tf.truncated_normal(shape, stddev=0.1)  
     return tf.Variable(initial)  
@@ -28,26 +29,30 @@ def max_pool_2x2(x):
   
 def main():  
       
-    #定义会话  
+    #defination Session 
     sess = tf.InteractiveSession()  
       
     #声明输入图片数据，类别  
+    #expain the size of photo inputed
     x = tf.placeholder('float',[None,784])  
     x_img = tf.reshape(x , [-1,28,28,1])  
-  
+    # First Convolutional Layer
     W_conv1 = weight_variable([5, 5, 1, 32])  
-    b_conv1 = bias_variable([32])  
+    b_conv1 = bias_variable([32])
+    # Second Convolutional Layer
     W_conv2 = weight_variable([5,5,32,64])  
     b_conv2 = bias_variable([64])  
+    
     W_fc1 = weight_variable([7*7*64,1024])  
     b_fc1 = bias_variable([1024])  
     W_fc2 = weight_variable([1024,10])  
     b_fc2 = bias_variable([10])  
-  
+    # restore trainning data to model
     saver = tf.train.Saver(write_version=tf.train.SaverDef.V1)   
     saver.restore(sess , 'model_data/model.ckpt')  
   
-    #进行卷积操作，并添加relu激活函数  
+    #进行卷积操作，并添加relu激活函数
+    # relu function
     h_conv1 = tf.nn.relu(conv2d(x_img,W_conv1) + b_conv1)  
     #进行最大池化  
     h_pool1 = max_pool_2x2(h_conv1)  
@@ -61,28 +66,29 @@ def main():
     #神经网络计算，并添加relu激活函数  
     h_fc1 = tf.nn.relu(tf.matmul(h_pool2_flat,W_fc1) + b_fc1)  
   
-    #输出层，使用softmax进行多分类  
+    #输出层，使用softmax进行多分类
+    #softmax function
     y_conv=tf.nn.softmax(tf.matmul(h_fc1, W_fc2) + b_fc2)  
   
     # mnist_data_set = extract_mnist.MnistDataSet('../../data/')  
-    # x_img , y  = mnist_data_set.next_train_batch(1)  
-    im = cv2.imread('upload/dog8.jpg',cv2.IMREAD_GRAYSCALE).astype(np.float32)  
+    x_img , y  = mnist_data_set.next_train_batch(1)  
+    im = cv2.imread('upload/3.jpg',cv2.IMREAD_GRAYSCALE).astype(np.float32)  
     im = cv2.resize(im,(28,28),interpolation=cv2.INTER_CUBIC)  
-    #图片预处理  
-    #img_gray = cv2.cvtColor(im , cv2.COLOR_BGR2GRAY).astype(np.float32)  
+    #图片预处理 
+    # CV2 processing images
+    img_gray = cv2.cvtColor(im , cv2.COLOR_BGR2GRAY).astype(np.float32)  
     #数据从0~255转为-0.5~0.5  
+    #data from 0 ~ 255 to -0.5~0.5
     img_gray = (im - (255 / 2.0)) / 255  
-    #cv2.imshow('out',img_gray)  
-    #cv2.waitKey(0)  
+    cv2.imshow('out',img_gray)  
+    cv2.waitKey(0)  
     x_img = np.reshape(img_gray , [-1 , 784])  
   
-    print (x_img,  
-    output = sess.run(y_conv , feed_dict = {x:x_img}) ) 
-    print ('the y_con :   ', '\n',output  )
-    print ('the predict is : ', np.argmax(output)  )
+    # output the result which number is 
+    #print (x_img,   output = sess.run(y_conv , feed_dict = {x:x_img}) ) 
+    #print ('the y_con :   ', '\n',output  )
+    #print ('the predict is : ', np.argmax(output)  )
   
-    #关闭会话  
+    #close session  
     sess.close()  
   
-if __name__ == '__main__':  
-    main()  

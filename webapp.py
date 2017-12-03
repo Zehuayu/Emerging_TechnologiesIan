@@ -5,6 +5,7 @@
 import os
 from flask import Flask, request, redirect, url_for, render_template #add render_template
 from werkzeug.utils import secure_filename
+import checking
 
 # change the path
 UPLOAD_FOLDER = '/Users/yuzehua/Desktop/Emerging-Technologies-Project-Year4-master/uploads'
@@ -38,4 +39,4 @@ def upload_file():
 
 @app.route('/uploaded_file')
 def uploaded_file():
-    return 'Upload Successful'
+    return output
