@@ -48,7 +48,7 @@ Project: this project is that create a web application in Python to recognise di
   this is result:
   ![image](https://github.com/Zehuayu/Emerging_TechnologiesIan/blob/master/photo/learning_result.jpg)
   
-  Precision is 92% and save model
+  Precision is 92% and save model into model_data folder
   
   next step is that running checking.py, which scan the number photo from folder and distinguish the number is
   . i had upload the 8 photo
@@ -61,6 +61,61 @@ Project: this project is that create a web application in Python to recognise di
   ![image](https://github.com/Zehuayu/Emerging_TechnologiesIan/blob/master/photo/webpage.jpg)
   
   user can upload picture to upload folder, and checking.py can scan the photo and give response to user
+  
+  
+  
+  ## Problem Slove
+  
+  #### 1: how does picture be upload by AJAX
+  
+  [W3C school tutorial](http://www.w3school.com.cn/jquery/jquery_ajax_get_post.asp) and class example
+  
+  post/get function 
+  
+  code{
+  
+  $("button").click(function(){
+  $.post("demo_test_post.asp",
+  {
+    name:"Donald Duck",
+    city:"Duckburg"
+  },
+  function(data,status){
+    alert("Data: " + data + "\nStatus: " + status);
+  });
+});
+  }
+  
+  
+  
+  #### 2:studying machine learning 
+  
+  unsderstanding the structure of learning and important program
+  
+    
+    
+     input layer   hidden layer    output layer
+               
+      input ----     OOOOOOO  -------output
+      
+      
+
+   tf.variable()          make one variable
+   tf.constart()          make one constant
+   
+   init  = tf.initializ_all_variable()     Initialize all variables
+   
+   input = tf.placeholder(tf.float32)      waiting the value input
+   
+   sess = tf.Session()          running function
+  
+  
+  
+  #### How to identify the digital from folder
+  
+  [Tensorflow Mnist example](http://hpzhao.com/2016/08/09/TensorFlow%E5%AE%9E%E6%88%98%EF%BC%9A%E6%89%8B%E5%86%99%E6%95%B0%E5%AD%97%E8%AF%86%E5%88%AB/)
+  
+  
   
   
   
