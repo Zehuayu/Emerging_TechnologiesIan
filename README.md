@@ -1,7 +1,8 @@
 # Emerging-Technologies-Project-Year4
           
-Student: Zehua Yu  Student number:G00307279
-             Teacher: Ian
+Student: Zehua Yu  
+Student number:G00307279 
+Lecturer: Dr Ian McLoughlin
           
 Project: this project is that create a web application in Python to recognise digits in images. Users are  able to visit the web application through their browser, submit an image containing a single digit, and the web application will respond with the digit contained in the image. 
  
